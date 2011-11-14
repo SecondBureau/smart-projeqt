@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'sinatra'
-require 'datamapper'
+#require 'datamapper'
 
 get '/en' do
   redirect 'http://projeqt.com/secondbureau#lsi0ci22621q' 
@@ -10,7 +10,7 @@ get '/fr' do
   redirect 'http://projeqt.com/secondbureau#lsi0ci22621q' 
 end
 
-get ':anchor' do
-  redirect "http://projeqt.com/secondbureau##{params[:anchor]}"
+get %r{(.*)} do |c| 
+  redirect "http://projeqt.com/secondbureau##{c}"
 end
 

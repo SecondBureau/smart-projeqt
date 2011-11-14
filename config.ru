@@ -1,2 +1,2 @@
-require 'smartprojeqt'
+require './smartprojeqt'
 run Sinatra::Application

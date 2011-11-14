@@ -1,0 +1,7 @@
+sinatra
+datamapper
+json
+syntaxi
+dm-postgres-adapter
+curb
+newrelic_rpm

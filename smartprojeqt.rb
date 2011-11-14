@@ -10,6 +10,10 @@ get '/fr' do
   redirect 'http://projeqt.com/secondbureau#lsi0ci22621q' 
 end
 
+get 'newrelic_secondbureau'
+  'ok Newrelic'
+end
+
 get %r{(.*)} do |c| 
   redirect "http://projeqt.com/secondbureau##{c}"
 end

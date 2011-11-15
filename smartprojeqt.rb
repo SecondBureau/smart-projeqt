@@ -5,7 +5,7 @@ require 'net/http'
 require 'uri'
 
 class Daryl
-def self.activate_daryl
+def self.activate_daryl(request)
   puts "Request nil" if request.nil?
   return unless request.nil? || request.env['HTTP_REFERER'].nil?
   daryl = ENV['DARYL'] || 'daryl.2bu.ro'
@@ -27,17 +27,17 @@ configure :production do
 end
 
 get '/en' do
-  Daryl.activate_daryl
+  Daryl.activate_daryl request
   redirect 'http://projeqt.com/secondbureau#fsi92876ci22621q'
 end
 
 get '/fr' do
-  Daryl.activate_daryl
+  Daryl.activate_daryl request
   redirect 'http://projeqt.com/secondbureau#fsi92862ci22619q'
 end
 
 get '/cn' do
-  Daryl.activate_daryl
+  Daryl.activate_daryl request
   redirect 'http://projeqt.com/secondbureau#fsi93363ci22762q'
 end
 
@@ -46,7 +46,7 @@ get '/newrelic_secondbureau' do
 end
 
 get %r{(.*)} do |c|
-  Daryl.activate_daryl
+  Daryl.activate_daryl request
   redirect "http://projeqt.com/secondbureau##{c}"
 end
 

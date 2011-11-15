@@ -11,12 +11,17 @@ end
 
 get '/en' do
   activate_daryl
-  redirect 'http://projeqt.com/secondbureau#lsi0ci22621q'
+  redirect 'http://projeqt.com/secondbureau#lsi92876ci22621q'
 end
 
 get '/fr' do
   active_daryl
-  redirect 'http://projeqt.com/secondbureau#lsi0ci22621q'
+  redirect 'http://projeqt.com/secondbureau#lsi92862ci22619q'
+end
+
+get '/cn' do
+  active_daryl
+  redirect 'http://projeqt.com/secondbureau#lsi93363ci22762q'
 end
 
 get '/newrelic_secondbureau' do

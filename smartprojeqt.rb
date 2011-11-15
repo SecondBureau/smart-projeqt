@@ -6,7 +6,8 @@ require 'uri'
 
 class Daryl
 def self.activate_daryl
-  return unless request.env['HTTP_REFERER'].nil?
+  puts "Request nil" if request.nil?
+  return unless request.nil? || request.env['HTTP_REFERER'].nil?
   daryl = ENV['DARYL'] || 'daryl.2bu.ro'
   url = "http://#{daryl}/page/create"
   agent = request.env["HTTP_USER_AGENT"]

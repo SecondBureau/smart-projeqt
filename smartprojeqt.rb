@@ -25,7 +25,7 @@ configure :production do
   require 'newrelic_rpm'
 end
 
-before do
+after do
   Daryl.activate_daryl request
 end
 

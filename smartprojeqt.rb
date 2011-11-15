@@ -4,7 +4,8 @@ require 'sinatra'
 require 'net/http'
 require 'uri'
 
-def activate_daryl
+class Daryl
+def self.activate_daryl
   return unless request.env['HTTP_REFERER'].nil?
   daryl = ENV['DARYL'] || 'daryl.2bu.ro'
   url = "http://#{daryl}/page/create"
@@ -17,6 +18,7 @@ def activate_daryl
     Net::HTTP.post_form(URI.parse(url), {'page[ip]'=>ip, 'page[host]'=>host, 'page[agent]' => agent, 'page[uri]' => uri})
   end
 end
+end
 
 ### New Relic
 configure :production do
@@ -24,17 +26,17 @@ configure :production do
 end
 
 get '/en' do
-  activate_daryl
+  Daryl.activate_daryl
   redirect 'http://projeqt.com/secondbureau#fsi92876ci22621q'
 end
 
 get '/fr' do
-  active_daryl
+  Daryl.activate_daryl
   redirect 'http://projeqt.com/secondbureau#fsi92862ci22619q'
 end
 
 get '/cn' do
-  active_daryl
+  Daryl.activate_daryl
   redirect 'http://projeqt.com/secondbureau#fsi93363ci22762q'
 end
 
@@ -43,7 +45,7 @@ get '/newrelic_secondbureau' do
 end
 
 get %r{(.*)} do |c|
-  activate_daryl
+  Daryl.activate_daryl
   redirect "http://projeqt.com/secondbureau##{c}"
 end
 

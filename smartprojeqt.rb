@@ -26,18 +26,19 @@ configure :production do
   require 'newrelic_rpm'
 end
 
-get '/en' do
+before do
   Daryl.activate_daryl request
+end
+
+get '/en' do
   redirect 'http://projeqt.com/secondbureau#fsi92876ci22621q'
 end
 
 get '/fr' do
-  Daryl.activate_daryl request
   redirect 'http://projeqt.com/secondbureau#fsi92862ci22619q'
 end
 
 get '/cn' do
-  Daryl.activate_daryl request
   redirect 'http://projeqt.com/secondbureau#fsi93363ci22762q'
 end
 
@@ -46,7 +47,6 @@ get '/newrelic_secondbureau' do
 end
 
 get %r{(.*)} do |c|
-  Daryl.activate_daryl request
   redirect "http://projeqt.com/secondbureau##{c}"
 end
 
